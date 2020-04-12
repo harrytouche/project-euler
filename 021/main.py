@@ -11,27 +11,27 @@ from functools import reduce
 import math
 
 
-def SumOfTwoNumbers(a,b):
-    return a+b
+def SumOfTwoNumbers(a, b):
+    return a + b
+
 
 def SumOfDivisorsOfNumber(n):
-    
+
     output = []
-    
-    
+
     max_iteration = math.ceil(math.sqrt(n)) + 1
-    
+
     for i in range(1, max_iteration):
-        
+
         if n % i == 0:
             output.append(i)
 
             # only append the other factor if no the sqrt
-            if i ** 2 != n and int(n/i) != n:
-                output.append(int(n/i))
-                
-    
+            if i ** 2 != n and int(n / i) != n:
+                output.append(int(n / i))
+
     return reduce(SumOfTwoNumbers, output)
+
 
 SumOfDivisorsOfNumber(3)
 
@@ -40,21 +40,24 @@ ceiling = 10000
 total = 0
 
 for i in range(2, ceiling):
-    
+
     print("{} / {}".format(i, ceiling))
-    
+
     sum_divisors_i = SumOfDivisorsOfNumber(i)
-    
+
     if sum_divisors_i != i:
-        
+
         sum_sum_divisors_i = SumOfDivisorsOfNumber(sum_divisors_i)
-        
+
         if sum_sum_divisors_i == i:
-            
-            print("Found amicable numbers: {} and {}".format(sum_divisors_i, sum_sum_divisors_i))
+
+            print(
+                "Found amicable numbers: {} and {}".format(
+                    sum_divisors_i, sum_sum_divisors_i
+                )
+            )
             total += sum_divisors_i + sum_sum_divisors_i
-            
+
 # half it as numbers will have counted twice
 total = int(total / 2)
 print(total)
-        

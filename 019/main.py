@@ -19,14 +19,16 @@ max_year = 2000
 n_sundays_as_firsts = 0
 
 
+for i in range(min_year, max_year + 1):
 
-
-for i in range(min_year, max_year+1):
-    
     for j in range(1, 13):
-        
+
         current_date = date(i, j, 1)
         if current_date.weekday() == 6:
             n_sundays_as_firsts += 1
-            
-print("There were {} Sundays as first of months between the years {} and {}".format(n_sundays_as_firsts, min_year, max_year))
+
+print(
+    "There were {} Sundays as first of months between the years {} and {}".format(
+        n_sundays_as_firsts, min_year, max_year
+    )
+)

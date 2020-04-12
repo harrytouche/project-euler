@@ -38,25 +38,22 @@ max_product = 0
 
 for i in range(a_rows):
     for j in range(a_columns):
-        
+
         # get row product
-        temp_product = np.product(a[i,j:j+n_numbers])
+        temp_product = np.product(a[i, j : j + n_numbers])
         max_product = max([max_product, temp_product])
-        
 
         # get column product
-        temp_product = np.product(a[i:i+n_numbers,j])
+        temp_product = np.product(a[i : i + n_numbers, j])
         max_product = max([max_product, temp_product])
 
-        
         # get diagonal product
-        temp_product = np.product(np.diagonal(a, j-i)[j:j+n_numbers])
-        max_product = max([max_product, temp_product]) 
-        
+        temp_product = np.product(np.diagonal(a, j - i)[j : j + n_numbers])
+        max_product = max([max_product, temp_product])
+
         # other diagonal product
-        temp_product = np.product(np.fliplr(a).diagonal(j-i)[j:j+n_numbers])        
-        max_product = max([max_product, temp_product]) 
+        temp_product = np.product(np.fliplr(a).diagonal(j - i)[j : j + n_numbers])
+        max_product = max([max_product, temp_product])
 
-        
+
 print("Max product in array: {}".format(max_product))
-

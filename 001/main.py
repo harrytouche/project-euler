@@ -10,21 +10,20 @@ modulos = [3, 5]
 
 for i in range(max_number):
 
-	print("i = {}".format(i))
+    print("i = {}".format(i))
 
-	for modulo in modulos:
+    for modulo in modulos:
 
-		print("modulo = {}".format(modulo))
+        print("modulo = {}".format(modulo))
 
-		remainder = i % modulo
+        remainder = i % modulo
 
-		print("remainder= {}".format(remainder))
+        print("remainder= {}".format(remainder))
 
-		if (remainder == 0):
+        if remainder == 0:
 
-			total += i
-			break
-		
-		
+            total += i
+            break
+
 
 print(total)

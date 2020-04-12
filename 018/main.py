@@ -38,23 +38,17 @@ triangle = np.genfromtxt("triangle.csv", dtype=int)
 n_rows = np.size(triangle, axis=0)
 
 
-for i in range(n_rows-2, -1, -1):
+for i in range(n_rows - 2, -1, -1):
 
-    print(triangle[i,:])
-    
+    print(triangle[i, :])
+
     for j in range(len(triangle[i]) - 1):
-        print(triangle[i,j])
-        
-        if triangle[i+1,j] > triangle[i+1,j+1]:
-            triangle[i,j] += triangle[i+1,j]
+        print(triangle[i, j])
+
+        if triangle[i + 1, j] > triangle[i + 1, j + 1]:
+            triangle[i, j] += triangle[i + 1, j]
         else:
-            triangle[i,j] += triangle[i+1,j+1]
-            
-    
-print(triangle[0,0])
-    
-    
-    
-    
-    
-    
+            triangle[i, j] += triangle[i + 1, j + 1]
+
+
+print(triangle[0, 0])

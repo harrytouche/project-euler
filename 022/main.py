@@ -13,27 +13,29 @@ from functools import reduce
 def NameValue(name):
     output = 0
     name = list(name)
-    
+
     for letter in name:
         output += ord(letter) - 64
-    
+
     return output
-    
+
+
 def GetNameScore(name_object):
     return int(name_object["alpha"] * name_object["value"])
-    
 
 
-with open('names.txt', 'r') as f:
+with open("names.txt", "r") as f:
     reader = csv.reader(f)
     names = list(reader)[0]
     names.sort()
-    names = [{"name": names[i], "alpha":i+1, "value":NameValue(names[i])} for i in range(len(names))]
-  
+    names = [
+        {"name": names[i], "alpha": i + 1, "value": NameValue(names[i])}
+        for i in range(len(names))
+    ]
 
 
 total = 0
 for name in names:
     total += int(name["alpha"] * name["value"])
-    
+
 print("Total is: {}".format(total))

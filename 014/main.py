@@ -20,33 +20,33 @@ def NextCollatzNumber(number):
         return int(number / 2)
     else:
         return int(3 * number + 1)
-    
-    
+
+
 sequence_to_zero = {}
 starting_max = int(1e6)
 starting_number = 2
 
 while starting_number < starting_max:
-    
+
     print("n = {}".format(starting_number))
     current_number = starting_number
-    steps_to_one = 1 # itself
+    steps_to_one = 1  # itself
 
     while current_number > 1:
-        
+
         if str(current_number) in sequence_to_zero:
-            #print("sequence to zero for {} is {}".format(current_number, sequence_to_zero[str(current_number)]))
+            # print("sequence to zero for {} is {}".format(current_number, sequence_to_zero[str(current_number)]))
             steps_to_one += sequence_to_zero[str(current_number)]
             current_number = 1
-            
+
         else:
             current_number = NextCollatzNumber(current_number)
-            #print("current number: {}".format(current_number))
+            # print("current number: {}".format(current_number))
             steps_to_one += 1
-            
+
     sequence_to_zero[str(starting_number)] = steps_to_one
     starting_number += 1
-    
+
 
 max_value = max(sequence_to_zero.values())
 max_key = [k for k, v in sequence_to_zero.items() if v == max_value][0]

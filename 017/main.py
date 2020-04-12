@@ -14,16 +14,15 @@ max_number = 1000
 sum_digits = 0
 
 p = inflect.engine()
-for i in range(1,max_number+1):
+for i in range(1, max_number + 1):
 
     number_to_words = p.number_to_words(i)
-    
+
     # remove spaces
     number_to_words = "".join(number_to_words.split(" "))
-    
+
     # remove hyphens
     number_to_words = "".join(number_to_words.split("-"))
     sum_digits += len(number_to_words)
-    
-print(sum_digits)
 
+print(sum_digits)

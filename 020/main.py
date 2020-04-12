@@ -10,9 +10,9 @@ Find the sum of the digits in the number 100!
 import math
 from functools import reduce
 
-def SumTwoNumbersAsInt(a,b):
-    return int(a) + int(b)
 
+def SumTwoNumbersAsInt(a, b):
+    return int(a) + int(b)
 
 
 number = 100

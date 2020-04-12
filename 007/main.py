@@ -12,18 +12,18 @@ a = 6
 
 while len(primes) < n_primes:
 
-    # loop over primes    
+    # loop over primes
     for prime in primes:
 
         # if there is a zero remainder, must be a factor
         if not a % prime:
             break
-        
+
         # if not broken after last prime, new prime
         if prime == primes[-1]:
             print("new prime found: {}".format(a))
             primes.append(a)
-            
+
     a += 1
-            
+
 print(primes[-1])

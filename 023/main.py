@@ -14,34 +14,34 @@ import math
 import numpy as np
 
 
-def SumOfTwoNumbers(a,b):
-    return a+b
+def SumOfTwoNumbers(a, b):
+    return a + b
+
 
 def SumOfDivisorsOfNumber(n):
-    
+
     output = []
-    max_iteration = math.ceil(n/2) + 1
-    
+    max_iteration = math.ceil(n / 2) + 1
+
     for i in range(1, max_iteration):
-        
+
         if n % i == 0:
-            
+
             if i not in output:
                 output.append(i)
 
             # only append the other factor if no the sqrt
-            if i ** 2 != n and int(n/i) != n and int(n/i) not in output:
-                output.append(int(n/i))
-                
-    
+            if i ** 2 != n and int(n / i) != n and int(n / i) not in output:
+                output.append(int(n / i))
+
     return reduce(SumOfTwoNumbers, output)
 
 
 def GetAbundantNumbersUpToN(n):
     abundant_numbers_ceiling = n
     abundant_numbers = []
-    
-    for i in range(1, abundant_numbers_ceiling+1):
+
+    for i in range(1, abundant_numbers_ceiling + 1):
         if SumOfDivisorsOfNumber(i) > i:
             abundant_numbers.append(i)
 
@@ -52,20 +52,24 @@ abundant_max = 28123
 
 
 try:
-    print("There are {} abundant numbers up to {}".format(len(abundant_numbers),abundant_max))
+    print(
+        "There are {} abundant numbers up to {}".format(
+            len(abundant_numbers), abundant_max
+        )
+    )
 except Exception:
     abundant_numbers = GetAbundantNumbersUpToN(abundant_max)
 
 # create matrix of all abundant number sums
-matrix = np.zeros((len(abundant_numbers),len(abundant_numbers)), dtype=int)
+matrix = np.zeros((len(abundant_numbers), len(abundant_numbers)), dtype=int)
 for i in range(len(abundant_numbers)):
     for j in range(len(abundant_numbers)):
-        
-        new_addition =  abundant_numbers[i] + abundant_numbers[j]
-        
+
+        new_addition = abundant_numbers[i] + abundant_numbers[j]
+
         if new_addition < abundant_max:
-            matrix[i,j] = new_addition
-        
+            matrix[i, j] = new_addition
+
 # get the uniques and sum, then take from the sum of all numbers
 unique_sums = list(np.unique(matrix))
 unique_sums_sum = reduce(SumOfTwoNumbers, unique_sums)
@@ -73,6 +77,3 @@ sum_of_all_numbers_to_abundant_max = reduce(SumOfTwoNumbers, range(abundant_max)
 difference = sum_of_all_numbers_to_abundant_max - unique_sums_sum
 
 print(difference)
-
-
-

@@ -14,20 +14,22 @@ from functools import reduce
 
 
 def SquareNumber(n):
-    return n**2
+    return n ** 2
 
 
-def SumTwoNumbers(a,b):
-    return a+b
+def SumTwoNumbers(a, b):
+    return a + b
+
 
 def SumOfSquareNumbersToNumber(n):
-    
-    list_of_numbers = list(range(1,n+1))
-    list_of_numbers = map(SquareNumber,list_of_numbers)
-    return reduce(SumTwoNumbers,list_of_numbers)
+
+    list_of_numbers = list(range(1, n + 1))
+    list_of_numbers = map(SquareNumber, list_of_numbers)
+    return reduce(SumTwoNumbers, list_of_numbers)
+
 
 def SquareOfSumOfNumbersToNumber(n):
-    list_of_numbers = list(range(1,n+1))
+    list_of_numbers = list(range(1, n + 1))
     sum_of_numbers = reduce(SumTwoNumbers, list_of_numbers)
     return sum_of_numbers ** 2
 

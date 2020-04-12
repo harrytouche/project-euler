@@ -22,37 +22,44 @@ import math
 
 
 def NumberOfFactors(number):
-    
+
     n_factors = 0
     i = 1
-    
-    while i < int(math.sqrt(number)+1):
+
+    while i < int(math.sqrt(number) + 1):
         if number % i == 0:
             if i * i != number:
                 n_factors += 2
             else:
                 n_factors += 1
-            
-        i+=1
-        
-    #print("{} has {} factors".format(number, n_factors))
-    return n_factors + 1 #and itself
+
+        i += 1
+
+    # print("{} has {} factors".format(number, n_factors))
+    return n_factors + 1  # and itself
 
 
 def NthTriangularNumber(n):
-    return int(n * (n+1) / 2)
-
+    return int(n * (n + 1) / 2)
 
 
 triangular_number_n = 1
 triangular_number = 1
-triangular_number_factors=1
+triangular_number_factors = 1
 n_factors_needed = 500
 
 while triangular_number_factors <= n_factors_needed:
     triangular_number_n += 1
     triangular_number = NthTriangularNumber(triangular_number_n)
     triangular_number_factors = NumberOfFactors(triangular_number)
-    print("Triangular number {} is {}, which has {} factors".format(triangular_number_n, triangular_number, triangular_number_factors))
-    
-print("First triangular number with over {} factors: {}".format(n_factors_needed, triangular_number))
+    print(
+        "Triangular number {} is {}, which has {} factors".format(
+            triangular_number_n, triangular_number, triangular_number_factors
+        )
+    )
+
+print(
+    "First triangular number with over {} factors: {}".format(
+        n_factors_needed, triangular_number
+    )
+)

@@ -9,28 +9,29 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 from functools import reduce
 
 
-def SumTwoNumbers(a,b):
-	return a+b
+def SumTwoNumbers(a, b):
+    return a + b
+
 
 def IsEvenNumber(n):
     return not (n % 2)
 
 
-#find fibonacci numbers less than defined ceiling
+# find fibonacci numbers less than defined ceiling
 sequence = [1, 2]
 maximum = 4e6
 
 while sequence[-1] < maximum:
-    sequence.append(SumTwoNumbers(sequence[-2],sequence[-1]))
-    
+    sequence.append(SumTwoNumbers(sequence[-2], sequence[-1]))
+
 print(sequence[0:10])
 print(sequence[-10:])
 
 
-#remove even numbers
+# remove even numbers
 even_sequence = list(filter(IsEvenNumber, sequence))
 
 
-#sum array
+# sum array
 output = reduce(SumTwoNumbers, even_sequence)
 print(output)
