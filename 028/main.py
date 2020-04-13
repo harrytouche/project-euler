@@ -11,3 +11,25 @@ It can be verified that the sum of the numbers on the diagonals is 101.
 
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 """
+
+
+# top right corner of nth circle is the number of numbers
+
+def sum_of_nth_loop(n):
+
+    output = 4 * (2*n+1)**2 - 12*n
+    return output
+
+
+x_spiral = 1001
+sum_of_spiral_diagonals = 1
+
+for x in range(1 , int((x_spiral-1)/2) + 1):
+    
+    sum_to_add = sum_of_nth_loop(x)
+    
+    print("x: {}, add: {}".format(x, sum_to_add))
+        
+    sum_of_spiral_diagonals += sum_to_add
+    
+print("Total: {}".format(sum_of_spiral_diagonals))
